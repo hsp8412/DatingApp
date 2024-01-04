@@ -4,9 +4,7 @@
       >Dating App</a
     >
 
-    <ul
-      class="navbar-nav me-auto mb-2 mb-md-0"
-    >
+    <ul class="navbar-nav me-auto mb-2 mb-md-0">
       <!-- <ul class="navbar-nav me-auto mb-2 mb-md-0"> -->
       <ng-container *ngIf="accountService.currentUser$ | async">
         <li class="nav-item">
@@ -37,6 +35,11 @@
       class="dropdown"
       *ngIf="accountService.currentUser$ | async as user"
     >
+      <img
+        src="{{ user.photoUrl || './assets/user.png' }}"
+        alt="user photo"
+        class="me-2"
+      />
       <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle
         >Welcome {{ user.userName | titlecase }}</a
       >

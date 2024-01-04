@@ -4,7 +4,7 @@ using API.Extensions;
 using AutoMapper;
 using AutoMapper.Execution;
 
-namespace API;
+namespace API.Helpers;
 
 public class AutoMapperProfiles : Profile
 {
