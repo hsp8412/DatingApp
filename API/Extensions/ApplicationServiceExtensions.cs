@@ -3,6 +3,7 @@ using API.Entities;
 using API.Helpers;
 using API.interfaces;
 using API.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Extensions;
@@ -28,6 +29,7 @@ public static class ApplicationServiceExtensions
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
         services.AddScoped<IPhotoService, PhotoService>();
+        services.AddScoped<LogUserActivity>();
 
         return services;
     }
