@@ -20,7 +20,7 @@ public class LogUserActivity : IAsyncActionFilter
 
         if (userId == null) return;
 
-        var user = await repo.GetUserByIdAsync(int.Parse(userId));
+        var user = await repo.GetUserByIdAsync(userId ?? 0);
 
         if (user == null) return;
 

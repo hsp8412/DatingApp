@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using AutoMapper.Internal.Mappers;
 
 namespace API.Extensions;
 
@@ -9,8 +10,13 @@ public static class ClaimsPrincipalExtensions
         return user.FindFirst(ClaimTypes.Name)?.Value;
     }
 
-    public static string? GetUserId(this ClaimsPrincipal user)
+    public static int? GetUserId(this ClaimsPrincipal user)
     {
-        return user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var id = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (id != null)
+        {
+            return int.Parse(id);
+        }
+        return null;
     }
 }
